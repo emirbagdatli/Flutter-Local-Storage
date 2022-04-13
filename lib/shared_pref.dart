@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_storage/main.dart';
 import 'package:flutter_storage/models/my_models.dart';
 import 'package:flutter_storage/services/file_storage.dart';
 import 'package:flutter_storage/services/local_storage_service.dart';
@@ -18,9 +19,7 @@ class _SharedPrefState extends State<SharedPref> {
   var _selectedColor = <String>[];
   var _student = false;
   final TextEditingController _nameController = TextEditingController();
-  final LocalStorageService _preferenceService = SecureStorageServices();
-  /*final LocalStorageService _preferenceService2 = SharedPrefenceServices();
-  final LocalStorageService _preferenceService3 = FileStorageServices(); */
+  final LocalStorageService _preferenceService = locator<LocalStorageService>();
 
   @override
   void initState() {

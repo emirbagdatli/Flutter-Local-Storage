@@ -1,10 +1,16 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_storage/models/my_models.dart';
 import 'package:flutter_storage/services/local_storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefenceServices implements LocalStorageService {
-  late final preferences;
+  late final SharedPreferences preferences;
+  SharedPrefenceServices() {
+    init();
+  }
+  Future<void> init() async {
+    final preferences = await SharedPreferences.getInstance();
+  }
+
   @override
   Future<void> saveData(UserInfo userInfo) async {
     final _name = userInfo.name;
@@ -16,8 +22,6 @@ class SharedPrefenceServices implements LocalStorageService {
 
   @override
   Future<UserInfo> readData() async {
-    final preferences = await SharedPreferences.getInstance();
-
     var _name = preferences.getString('name') ?? '';
     var _student = preferences.getBool('student') ?? false;
     var _selectedGender = Gender.values[preferences.getInt('gender') ?? 0];

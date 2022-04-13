@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_storage/services/local_storage_service.dart';
 import 'package:flutter_storage/services/seruce_storage.dart';
+import 'package:flutter_storage/services/shared_pref_services.dart';
 import 'package:flutter_storage/shared_pref.dart';
 import 'package:get_it/get_it.dart';
 
 final locator = GetIt.instance;
 
 void setup() {
-  //locator.registerSingleton<SecureStorageServices>(SecureStorageServices());
+  locator.registerSingleton<LocalStorageService>(SecureStorageServices());
 }
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setup();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
