@@ -1,0 +1,4 @@
+#Wed Apr 13 21:03:05 TRT 2022
+base.0=/Users/macbook/Flutter_projects/flutter_storage/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
